@@ -17,11 +17,11 @@ int main(int argc, string argv[])
         l = strlen(key);
         for (int c = 0; c < l; c++)
         {
-            if(!isalpha(key[c]))
-        {
-            printf("Usage: ./vigenere k\n");
-            return 1;
-        }
+            if (!isalpha(key[c]))
+            {
+                printf("Usage: ./vigenere k\n");
+                return 1;
+            }
         }
         do
         {
@@ -49,11 +49,11 @@ int main(int argc, string argv[])
             }
         }
     }
-        else
-        {
-            printf("Usage: ./vigenere k\n");
-            return 1;
-        }
-        printf("\n");
-        return 0;
+    else
+    {
+        printf("Usage: ./vigenere k\n");
+        return 1;
     }
+    printf("\n");
+    return 0;
+}
