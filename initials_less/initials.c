@@ -3,28 +3,25 @@
 #include <string.h>
 #include<ctype.h>
 
-int main (void)
+int main(void)
 {
     string name;
-    //bool ready = true;
     do
     {
+        //prompts user to enter name as string
         name = get_string();
     }
     while (!name);
+//prints first initial in uppercae
+    printf("%c", toupper(name[0]));
 
-    printf("%c",toupper(name[0]));
-
-    for (int i=1; i<strlen(name); i++)
+    for (int i = 1; i < strlen(name); i++)//iterates through remain characters in name string
     {
-//    printf("%c",toupper(name[0]));
-
-        if(!isalpha(name[i]))
+        if (!isalpha(name[i]))//if char is a space, prints next char in uppercase
         {
-        //i++;
-        printf("%c", toupper(name[i+1]));
+            printf("%c", toupper(name[i + 1]));
         }
     }
-        printf("\n");
-        return 0;
+    printf("\n");
+    return 0;
 }
