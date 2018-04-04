@@ -11,32 +11,25 @@ int main(int argc, string argv[])
     string pw_entered;
     string check;
     char salt[2];
-    //char guess_two[2];
     string alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if (argc == 2)
     {
         pw_entered = argv[1];
         salt[0] = pw_entered[0];
         salt[1] = pw_entered[1];
-        //eprintf("%s", salt);
-        string guess = NULL;
-        //eprintf("%s", guess);
         char guess_one[2];
-        //guess_two[2];
-   // while (strcmp(pw_entered, check) != 0)
-    //{
 
     //first guess - 1 letter
         for (int i = 0; i<strlen(alpha); i++)
         {
-            guess_one[0] = alpha[i]; //alphi[i] is placeholder, write code to iterate through alphabet (upper and lower) to check for single char password match
+            guess_one[0] = alpha[i];
             guess_one[1] = '\0';
-            guess = guess_one;
             check = crypt(guess_one, salt);
-            //guess = guess_one;
-            //eprintf("%d", i);
-            //eprintf("%s\n", guess);
-            //eprintf("%s", check);
+            if (strcmp(pw_entered, check) == 0)
+            {
+                printf("%s\n", guess_one);
+                return 0;
+           }
         }
 
     //second guess - 2 letters
@@ -47,16 +40,14 @@ int main(int argc, string argv[])
 
             for (int j = 0; j<strlen(alpha); j++)
             {
-            //guess_two[0] = alpha[i];
             guess_two[1] = alpha[j];
             guess_two[2] = '\0';
-            //guess_two =
             check = crypt(guess_two, salt);
-            guess = guess_two;
-            //eprintf("%d", i);
-            //eprintf("%d", j);
-            //eprintf("%c%c\n", guess_two[0], guess_two[1]);
-          //eprintf("%s\n", guess);
+            if (strcmp(pw_entered, check) == 0)
+            {
+                printf("%s\n", guess_two);
+                return 0;
+            }
             }
         }
 
@@ -76,8 +67,11 @@ int main(int argc, string argv[])
                     guess_three[2] = alpha[n];
                     guess_three[3] = '\0';
                     check = crypt(guess_three, salt);
-                    guess = guess_three;
-                    //eprintf("%s\n",guess_three);
+                    if (strcmp(pw_entered, check) == 0)
+                        {
+                        printf("%s\n", guess_three);
+                        return 0;
+                        }
                 }
 
             }
@@ -102,18 +96,48 @@ int main(int argc, string argv[])
                         guess_four[3] = alpha[r];
                         guess_four[4] = '\0';
                         check = crypt(guess_four, salt);
-                        //guess = guess_four;
-                        //eprintf("%s", guess_four);
                         if (strcmp(pw_entered, check) == 0)
                         {
-                        eprintf("%s", guess_four);
+                        printf("%s\n", guess_four);
                         return 0;
                         }
                     }
-                    // guess_three[3] = '\0';
-                    // check = crypt(guess_three, salt);
-                    // guess = guess_three;
-                    //eprintf("%s\n",guess_three);
+
+                }
+
+            }
+        }
+
+        //fifth guess - 5 letters;
+
+        for (int s = 0; s<strlen(alpha); s++)
+        {
+
+            char guess_five[6];
+            guess_five[0] = alpha[s];
+
+            for (int t = 0; t<strlen(alpha); t++)
+            {
+                guess_five[1] = alpha[t];
+                for (int u = 0; u<strlen(alpha); u++)
+                {
+                    guess_five[2] = alpha[u];
+                    for (int v = 0; v<strlen(alpha); v++)
+                    {
+                        guess_five[3] = alpha[v];
+                        for(int w = 0; w<strlen(alpha); w++)
+                        {
+                        guess_five[4] =alpha[w];
+                        guess_five[5] = '\0';
+                        check = crypt(guess_five, salt);
+                        if (strcmp(pw_entered, check) == 0)
+                        {
+                        printf("%s\n", guess_five);
+                        return 0;
+                        }
+                        }
+                    }
+
                 }
 
             }
@@ -121,11 +145,6 @@ int main(int argc, string argv[])
 
         printf("Password not found\n");
         return 0;
-
-    //}
-    //printf("%c\n", guess_one[0]);
-    //printf("%s\n", guess);
-    //return 0;
     }
     else
     {
