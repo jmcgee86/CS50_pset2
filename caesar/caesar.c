@@ -45,3 +45,17 @@ int main(int argc, string argv[])
         printf("\n");
         return 0;
     }
+
+/*
+****PEER REVIEW****
+
+Interesting to see this written with a Do/While loop, I did something different with my code
+
+Line 22: the int shift is a helpful tactic to store the interger after % 26 is applied to it.
+This keeps the code organized
+
+I would recommend storing strlen(plain_text) as a variable.
+Its only used twice but it could be considered good practice and add to the organization of the code.
+But on a side note I rememeber having issues with scope when I stored strlen(plain_text) as a variable so just dont do it the way I did.
+
+*/

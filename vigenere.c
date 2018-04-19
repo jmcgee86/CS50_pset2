@@ -57,3 +57,23 @@ int main(int argc, string argv[])
     printf("\n");
     return 0;
 }
+
+/*
+****PEER REVIEW****
+I appreciate how this solution is written to show the user the usage instead of a prompt to do something.
+You have to stop and discern the purpose of the usage instead of being told/reminded what to do.
+
+
+The variables and operations are easy to understand (i.e. key, key_index, shift) and the code looks clean/organized. Its clear to see order of operations happening on lines:
+
+40              (Using the index of the string to select a letter/character and using the ASCII value of the character to equalize it by the value of the letter a/A)
+41 and 47       (Where the character is printed after the letter selected from the string by the loop is equalized by its ASCII value and the value of a/A, and then its divided into 26 and the value of a/A is added back in)
+
+
+My only recommendation is to store the number 26 as a character mostly because its a magic number but also beacuse if I had no idea what the
+code was meant to do then I might not understand the point of using 26.
+
+
+
+
+*/
